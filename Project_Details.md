@@ -209,3 +209,280 @@ Administrator
 
 ---
 
+# 7. Database Schema Creation
+
+## Objective
+
+Design the database structure required for storing user information, digital footprint data, risk assessment results, and recommendations.
+
+## Database Name
+
+osint_analyzer.db
+
+## Table 1: Users
+
+| Column Name     | Data Type    | Description           |
+| --------------- | ------------ | --------------------- |
+| user_id         | INTEGER (PK) | Unique User ID        |
+| name            | TEXT         | User Name             |
+| email           | TEXT         | Email Address         |
+| github_username | TEXT         | GitHub Username       |
+| website_url     | TEXT         | Website URL           |
+| created_at      | DATETIME     | Account Creation Date |
+
+## Table 2: Footprint_Data
+
+| Column Name        | Data Type    | Description               |
+| ------------------ | ------------ | ------------------------- |
+| footprint_id       | INTEGER (PK) | Unique Footprint ID       |
+| user_id            | INTEGER (FK) | User Reference            |
+| github_found       | BOOLEAN      | GitHub Profile Found      |
+| website_found      | BOOLEAN      | Website Found             |
+| public_email_found | BOOLEAN      | Public Email Found        |
+| repository_count   | INTEGER      | Total Public Repositories |
+
+## Table 3: Risk_Assessment
+
+| Column Name   | Data Type    | Description     |
+| ------------- | ------------ | --------------- |
+| risk_id       | INTEGER (PK) | Risk Record ID  |
+| user_id       | INTEGER (FK) | User Reference  |
+| risk_score    | INTEGER      | Risk Score      |
+| risk_level    | TEXT         | Low/Medium/High |
+| analyzed_date | DATETIME     | Analysis Date   |
+
+## Table 4: Recommendations
+
+| Column Name         | Data Type    | Description            |
+| ------------------- | ------------ | ---------------------- |
+| recommendation_id   | INTEGER (PK) | Recommendation ID      |
+| risk_id             | INTEGER (FK) | Risk Reference         |
+| recommendation_text | TEXT         | Recommendation Message |
+
+## Table 5: Analysis_History
+
+| Column Name    | Data Type    | Description         |
+| -------------- | ------------ | ------------------- |
+| history_id     | INTEGER (PK) | History Record      |
+| user_id        | INTEGER (FK) | User Reference      |
+| analysis_date  | DATETIME     | Analysis Date       |
+| result_summary | TEXT         | Summary of Analysis |
+
+## Outcome
+
+Database schema finalized and ready for implementation using SQLite.
+
+---
+
+# 8. UI Wireframe Design
+
+## Objective
+
+Create the initial wireframe design for the OSINT Footprint Analyzer.
+
+## Screens Designed
+
+### 1. Login Page
+
+Components:
+
+* Project Logo
+* Email Field
+* Password Field
+* Login Button
+* Register Link
+
+### 2. Dashboard Page
+
+Components:
+
+* Navigation Menu
+* User Profile Card
+* Risk Score Card
+* Exposure Summary
+* Recommendation Section
+* Analysis History
+
+### 3. Analysis Form Page
+
+Components:
+
+* Name Input
+* Email Input
+* GitHub Username Input
+* Website URL Input
+* Analyze Button
+
+### 4. Result Page
+
+Components:
+
+* Risk Score Meter
+* Risk Level Indicator
+* Exposure Details
+* AI Recommendations
+* Download Report Button
+
+## Wireframe Tool Used
+
+* Draw.io
+* Figma
+* Canva
+
+## Outcome
+
+Low-fidelity wireframes completed for all major project screens.
+
+---
+
+# 9. Login & Dashboard UI Design | Navigation & Form Design | Design Review | Frontend Environment Setup
+
+## Login UI Design
+
+### Features
+
+* Responsive Design
+* Email Input Field
+* Password Input Field
+* Login Button
+* Forgot Password Link
+
+### Technologies
+
+* HTML
+* CSS
+* Bootstrap
+
+---
+
+## Dashboard UI Design
+
+### Dashboard Components
+
+#### Sidebar Navigation
+
+* Dashboard
+* Analyze Profile
+* History
+* Recommendations
+* Logout
+
+#### Main Dashboard
+
+* User Summary
+* Risk Score Card
+* Exposure Count Card
+* AI Analysis Card
+* Recent Activities
+
+---
+
+## Navigation Design
+
+### Navigation Menu Structure
+
+Home
+│
+├── Dashboard
+├── Analyze Profile
+├── History
+├── Reports
+└── Logout
+
+### Design Goals
+
+* Easy Navigation
+* Mobile Friendly
+* Clean Interface
+
+---
+
+## Form Design
+
+### User Input Form
+
+Fields:
+
+* Full Name
+* Email Address
+* GitHub Username
+* Website URL
+
+Button:
+
+Analyze Footprint
+
+### Validation
+
+* Required Fields
+* Email Validation
+* URL Validation
+
+---
+
+## Design Review
+
+### Review Checklist
+
+| Component         | Status    |
+| ----------------- | --------- |
+| Login Page        | Completed |
+| Dashboard Layout  | Completed |
+| Navigation Menu   | Completed |
+| User Form         | Completed |
+| Responsive Design | Reviewed  |
+
+### Improvements Identified
+
+* Add Risk Meter Visualization
+* Add Chart.js Dashboard Graphs
+* Improve Mobile Responsiveness
+
+---
+
+## Frontend Environment Setup
+
+### Software Installed
+
+* Python 3.x
+* VS Code
+* Git
+
+### Frontend Libraries
+
+* Bootstrap 5
+* Font Awesome
+* Chart.js
+
+### Project Folder Structure
+
+OSINT-Footprint-Analyzer
+
+├── static
+
+│ ├── css
+
+│ ├── js
+
+│ └── images
+
+├── templates
+
+│ ├── login.html
+
+│ ├── dashboard.html
+
+│ ├── analysis.html
+
+│ └── result.html
+
+├── app.py
+
+└── database
+
+### Outcome
+
+Frontend development environment successfully configured and ready for UI implementation.
+
+
+
